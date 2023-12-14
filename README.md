@@ -1,6 +1,7 @@
 0x1B. C - Sorting algorithms & Big O
-Description
-Background Context
+
+Description:
+Background Context:
 This project is meant to be done by groups of two students. Each group of two should pair program for at least the mandatory part. Resources
 
 Read or watch:
@@ -23,8 +24,9 @@ You are tasked to come up with solutions for the tasks below yourself to meet wi
 You will not be able to meet the objectives of this or any following project by copying and pasting someone else’s work.
 You are not allowed to publish any content of this project.
 Any form of plagiarism is strictly forbidden and will result in removal from the program.
-Requirements
-General
+
+Requirements:
+General:
 Allowed editors: vi, vim, emacs
 All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
 All your files should end with a new line
@@ -38,5 +40,6 @@ The prototypes of all your functions should be included in your header file call
 Don’t forget to push your header file
 All your header files should be include guarded
 A list/array does not need to be sorted if its size is less than 2.
-GitHub
+
+GitHub:
 There should be one project repository per group. If you clone/fork/whatever a project repository with the same name before the second deadline, you risk a 0% score.

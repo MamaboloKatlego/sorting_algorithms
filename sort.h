@@ -30,5 +30,6 @@ void quick_sort(int *array, size_t size);
 void shell_sort(int *array, size_t size);
 void counting_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
+void TopDownSplitMerge(size_t begin, size_t end, int *array, int *copy);
 
 #endif

@@ -31,5 +31,6 @@ void shell_sort(int *array, size_t size);
 void counting_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
 void TopDownSplitMerge(size_t begin, size_t end, int *array, int *copy);
+int min_swap(listint_t **current, listint_t **previous, listint_t **head, listint_t **tail);
 
 #endif

@@ -32,16 +32,17 @@ int max_swap(listint_t **current, listint_t **previous,
 }
 
 /**
- * min_swap - The min swap
- * @current: A current
+ * min_swap - max swap
+ *
+ * @current: current
  * @previous: A prev
- * @head:  A head
+ * @head: A head
  * @tail: A tail
  *
- * return: 1
+ * Return: 1
  */
-int min_swap(listint_t **current, listint_t **previous,
-		listint_t **head, listint_t **tail)
+int min_swap(listint_t **current, listint_t **previous, listint_t **head,
+listint_t **tail)
 {
 	if ((*current)->prev == NULL)
 		*head = *previous;

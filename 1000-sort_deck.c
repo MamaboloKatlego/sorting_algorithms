@@ -10,8 +10,8 @@ int card_comp(const card_t *card1, const card_t *card2);
 void swap_card(deck_node_t *n1, deck_node_t *n2, deck_node_t **deck);
 
 /**
- * sort_deck - sorts a deck of cards
- * @deck: deck of cards to sort
+ * sort_deck - It sorts a deck of cards
+ * @deck: The deck of cards to sort
  */
 void sort_deck(deck_node_t **deck)
 {
@@ -23,10 +23,10 @@ void sort_deck(deck_node_t **deck)
 }
 
 /**
- * qsort_deck - quick sorts a deck of cards recursively
- * @deck: double pointer to the deck for head modification
- * @left: pointer to left (start) of linked list
- * @right: pointer to right (end) of linked list
+ * qsort_deck - It quick sorts a deck of cards recursively
+ * @deck: A double pointer to the deck for head modification
+ * @left: A pointer to left (start) of linked list
+ * @right: A pointer to right (end) of linked list
  */
 void qsort_deck(deck_node_t *left, deck_node_t *right, deck_node_t **deck)
 {
@@ -47,14 +47,15 @@ void qsort_deck(deck_node_t *left, deck_node_t *right, deck_node_t **deck)
 }
 
 /**
- * lomuto_part - does lomuto partitioning for deck
- * @deck: double pointer to the deck for head modification
- * @left: pointer to left (start) of linked list
- * @right: pointer to right (end) of linked list
+ * lomuto_part - It does lomuto partitioning for deck
+ * @deck: A double pointer to the deck for head modification
+ * @left: A pointer to left (start) of linked list
+ * @right: A pointer to right (end) of linked list
  *
- * Return: pointer to the new position of the pivot, spiltting partitions
+ * Return: The pointer to the new position of the pivot, spiltting partitions
  */
-deck_node_t *lomuto_part(deck_node_t *left, deck_node_t *right, deck_node_t **deck)
+deck_node_t
+*lomuto_part(deck_node_t *left, deck_node_t *right, deck_node_t **deck)
 {
 	deck_node_t *temp_l, *temp_r, *pivot, *tmp_n;
 
@@ -87,13 +88,13 @@ deck_node_t *lomuto_part(deck_node_t *left, deck_node_t *right, deck_node_t **de
 }
 
 /**
- * card_comp - compares to cards evaluting suit and value
- * @card1: card 1 to compare with card 2
- * @card2: card 2 to compare with card 1
+ * card_comp - It compares to cards evaluting suit and value
+ * @card1: A card 1 to compare with card 2
+ * @card2: A card 2 to compare with card 1
  *
- * Return: 0 if card 1 is greater than card 2
+ * Return: It returns 0 if card 1 is greater than card 2
  *         1 if card 2 is greater than card 1
- *        -1 on errror
+ *        on error -1
  */
 int card_comp(const card_t *card1, const card_t *card2)
 {
@@ -173,13 +174,12 @@ int card_comp(const card_t *card1, const card_t *card2)
 }
 
 /**
- * swap_card - swaps to card nodes in a linked list
- * IMPORTANT: do not have node1 be after node2 in the list ->
- * implementation is UNDEFINED when this is the case.
- *
- * @n1: node1 to swap with node2
- * @n2: node2 to swap with node1
- * @deck: double pointer to deck if head modification is needed
+ * swap_card - It swaps to card nodes in a linked list
+ * IMPORTANT: Do not have node1 be after node2 in the list ->
+ *            implementation is UNDEFINED when this is the case.
+ * @n1: A node1 to swap with node2
+ * @n2: A node2 to swap with node1
+ * @deck: A double pointer to deck if head modification is needed
  */
 void swap_card(deck_node_t *n1, deck_node_t *n2, deck_node_t **deck)
 {

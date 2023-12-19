@@ -1,45 +1,75 @@
 #include "sort.h"
 
+listint_t *get_list_end(listint_t *list);
+size_t list_len(const listint_t *list);
+
 /**
- * insertion_sort_list - A short description
- * Description: A long Description
- * @list: The arg_1 description
- * Return: The return description
+ * insertion_sort_list - It performs insertion sort on a list
+ * @list: The linked list of ints to sort
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *current, *head, *previous, *prev_inner, *current_inner;
+	listint_t *sorted, *unsorted, *prev, *next, *ele;
 
-	if (list == NULL)
+	sorted = unsorted = prev = next = ele = NULL;
+	/* NO LIST, OR LIST IS ONE ELE */
+	if (!list || !(*list) || !((*list)->next))
 		return;
-	if ((*list) == NULL || (*list)->next == NULL)
-		return;
-	previous = *list;
-	current = (*list)->next;
-	head = *list;
-	while (current)
+
+	sorted = *list;
+	unsorted = get_list_end(*list);
+	while (sorted && unsorted)
 	{
-		current_inner = current;
-		prev_inner = previous;
-		while (prev_inner && prev_inner->n > current_inner->n)
+		ele = sorted;
+		while (ele->prev && ele->n < ele->prev->n)
 		{
-			if (prev_inner->prev == NULL)
-				head = current_inner;
-			if (current_inner == current)
-				current = prev_inner;
-			if (current_inner->next != NULL)
-				current_inner->next->prev = prev_inner;
-			if (prev_inner->prev != NULL)
-				prev_inner->prev->next = current_inner;
-			current_inner->prev = prev_inner->prev;
-			prev_inner->next = current_inner->next;
-			current_inner->next = prev_inner;
-			prev_inner->prev = current_inner;
-			prev_inner = current_inner->prev;
-			print_list(head);
+			/* SWAP ELEMENTS TOWARDS FRONT */
+			prev = ele->prev;
+			next = ele->next;
+			ele->prev = prev->prev;
+			ele->next = prev;
+			if (prev->prev)
+				prev->prev->next = ele;
+			prev->prev = ele;
+			prev->next = next;
+			if (next)
+				next->prev = prev;
+
+			if (!ele->prev) /* reset head if needed */
+				*list = ele;
+			print_list(*list);
 		}
-		previous = current;
-		current = current->next;
+		sorted = sorted->next;
 	}
-	*list = head;
+}
+
+/**
+ * list_len - It gets the length of a list
+ * @list: The list to get length of
+ *
+ * Return: It returns length of list
+ */
+size_t list_len(const listint_t *list)
+{
+	size_t len = 0;
+
+	while (list)
+	{
+		len++;
+		list = list->next;
+	}
+	return (len);
+}
+
+/**
+ * get_list_end - It gets a pointer to end of linked list
+ * @list: The list to get pointer from
+ *
+ * Return: It returns pointer to end of list
+ */
+listint_t *get_list_end(listint_t *list)
+{
+	while (list && list->next)
+		list = list->next;
+	return (list);
 }

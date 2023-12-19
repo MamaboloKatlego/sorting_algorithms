@@ -24,7 +24,7 @@ typedef enum bool
  *
  * @n: The int strored in the node
  * @prev: The pointer to the prev element of the list
- * @next: The pointer to the next element of the list
+ * @next: The pointer to the next element of the list.
  */
 typedef struct listint_s
 {

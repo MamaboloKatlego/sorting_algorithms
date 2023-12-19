@@ -1,13 +1,28 @@
-#ifndef SORT_H_
-#define SORT_H_
+#ifndef SORT_H
+#define SORT_H
 
 #include <stdlib.h>
 #include <stddef.h>
 
+/* Comparison direction macros for bitonic sort */
+#define UP 0
+#define DOWN 1
+
+/**
+ * enum bool - The enumeration of Boolen values
+ * @false: Equals 0.
+ * @true: Equals 1.
+ */
+typedef enum bool
+{
+	false = 0,
+	true
+} bool;
+
 /**
  * struct listint_s - The doubly linked list node
  *
- * @n: The int stored in the node
+ * @n: The int strored in the node
  * @prev: The pointer to the prev element of the list
  * @next: The pointer to the next element of the list
  */
@@ -18,6 +33,11 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
+/* Printing helper functions */
+void print_array(const int *array, size_t size);
+void print_list(const listint_t *list);
+
+/* Sorting algorithms */
 void cocktail_sort_list(listint_t **list);
 void radix_sort(int *array, size_t size);
 void quick_sort_hoare(int *array, size_t size);
@@ -34,4 +54,4 @@ void TopDownSplitMerge(size_t begin, size_t end, int *array, int *copy);
 int min_swap(listint_t **current, listint_t **previous, listint_t **head, listint_t **tail);
 deck_node_t *lomuto_part(deck_node_t *left, deck_node_t *right, deck_node_t **deck);
 
-#endif
+#endif /* SORT_H */
